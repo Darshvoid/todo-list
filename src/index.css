@@ -1,17 +1,157 @@
-:root{
-  --main-black: #151515;
-  --main-white: #FFFFFF;
+@import url();
+
+*{
+  font-family: sans-serif;
+  box-sizing: content-box;
 }
 
-.background-black{
-  background: var(--main-black);
+button{
+  border: 0;
+  padding: 0;
 }
 
-.border-bottom-white{
-  border-bottom: var(--main-white);
+.flex-wrapper{
+  display: flex;
 }
 
-header{
+.margin-right-med{
+  margin-right: clamp(4px, 1.875vw, 36px);
+}
+
+.margin-left-lg{
+  margin-left: clamp(4px, 2vw, 100px);
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   height: 79px;
+  padding: 0 17px;
+
+  background-color: #151515;
+  border-bottom: #FFFF;
+}
+
+.header__button{
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 1vw, 18px);
+
+  height: 25px;
+  width: max-content;
+
+  background: none;
+
+  cursor: pointer;
+}
+
+.header__button-icon-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 32px;
+  min-width: 32px;
   
+  border-radius: 6px;
+  border: 1px solid #FFFFFF;
+  
+  background-color: #262626;
+}
+.header__button-icon{
+  height: 19px;
+  width: 22px;
+
+}
+
+.header__button-text{
+  max-height: 36px;
+
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.header__search{
+
+  width: 255px;
+
+  border-radius: 6px;
+  border: 1px solid #FFFFFF;
+
+  background-color: #262626;
+}
+
+.header__heading{
+  font-size: 24px;
+  font-weight: 400;
+
+
+  color: #FFFFFF;
+}
+
+.header__heading--highlight{
+  color: #777777;
+}
+
+
+@media (max-width: 750px) {
+  .header__button-text{
+    font-size: 18px;
+  }
+
+  .header__heading{
+    font-size: 18px;
+  }
+
+  .header__button{
+    height: 20px;
+  }
+
+  .header__button-icon{
+    height: 14px;
+  }
+
+  .header__search{
+    height: 20px;
+    width: 125px;
+  }
+}
+
+@media (max-width: 520px) {
+  .header{
+    padding: 0;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .header__button-text{
+    display: none;
+    font-size: 18px;
+  }
+
+  .header__heading{
+    font-size: 24px;
+  }
+
+  .header__button{
+    flex-direction: column;
+    height: 20px;
+  }
+
+  .header__button-icon-wrapper{
+    height: 40px;
+    width: 80px;
+  }
+
+  .header__button-icon{
+    height: 24px;
+  }
+
+  .header__search{
+    display: none;
+    height: 18px;
+    width: 32px;
+  }
 }

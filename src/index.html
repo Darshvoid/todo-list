@@ -8,15 +8,35 @@
     <link rel="stylesheet" href="styles/reset.css">
 </head>
 <body>
-    <header class="background-black border-bottom-white">
-        <div id="filter__container">
-            <button>
-                
+    <header class="header">
+
+        <div class="flex-wrapper">
+            <button class="header__button margin-right-med">
+                <div class="header__button-icon-wrapper">
+                    <img class="header__button-icon" src="./icons/filter.svg" alt="">
+                </div>
+                <p class="header__button-text">Filter</p>
+            </button>
+            
+            <button class="header__button">
+                <div class="header__button-icon-wrapper">
+                    <img class="header__button-icon" src="./icons/search.svg" alt="">
+                </div>
+                <input class="header__search" type="search">
             </button>
         </div>
+
+        <h1 class="header__heading"> <strong class="header__heading--highlight">TODO</strong>IST</h1>
+        
+        <button class="header__button margin-left-lg">
+            <div class="header__button-icon-wrapper">
+                <img class="header__button-icon" src="./icons/Book.svg" alt="">
+            </div>
+            <p class="header__button-text">Study React</p>
+        </button>
     </header>
 
-    <aside id="app__sidebar">
+    <aside>
 
     </aside>
 </body>
