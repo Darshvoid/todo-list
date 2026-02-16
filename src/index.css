@@ -1,0 +1,17 @@
+:root{
+  --main-black: #151515;
+  --main-white: #FFFFFF;
+}
+
+.background-black{
+  background: var(--main-black);
+}
+
+.border-bottom-white{
+  border-bottom: var(--main-white);
+}
+
+header{
+  height: 79px;
+  
+}
