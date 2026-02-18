@@ -1,6 +1,5 @@
 import path from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { ru } from "date-fns/locale";
 
 export default {
     entry: "./src/index.js",

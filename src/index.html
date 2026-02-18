@@ -8,36 +8,125 @@
     <link rel="stylesheet" href="styles/reset.css">
 </head>
 <body>
-    <header class="header">
-
-        <div class="flex-wrapper">
-            <button class="header__button margin-right-med">
-                <div class="header__button-icon-wrapper">
-                    <img class="header__button-icon" src="./icons/filter.svg" alt="">
-                </div>
-                <p class="header__button-text">Filter</p>
-            </button>
+    <div class="app-container">
+        <header class="header">
+    
+            <div class="flex-wrapper">
+                <button class="header__button margin-right-med">
+                    <div class="header__button-icon-wrapper">
+                        <img class="header__button-icon" src="./icons/filter.svg" alt="">
+                    </div>
+                    <p class="header__button-text">Filter</p>
+                </button>
+                
+                <button class="header__button">
+                    <div class="header__button-icon-wrapper">
+                        <img class="header__button-icon" src="./icons/search.svg" alt="">
+                    </div>
+                    <input class="header__search" type="search">
+                </button>
+            </div>
+    
+            <h1 class="header__heading"> <strong class="header__heading--highlight">TODO</strong>IST</h1>
             
             <button class="header__button">
                 <div class="header__button-icon-wrapper">
-                    <img class="header__button-icon" src="./icons/search.svg" alt="">
+                    <img class="header__button-icon" src="./icons/Book.svg" alt="">
                 </div>
-                <input class="header__search" type="search">
+                <p class="header__button-text">Study React</p>
             </button>
-        </div>
-
-        <h1 class="header__heading"> <strong class="header__heading--highlight">TODO</strong>IST</h1>
-        
-        <button class="header__button margin-left-lg">
-            <div class="header__button-icon-wrapper">
-                <img class="header__button-icon" src="./icons/Book.svg" alt="">
+        </header>
+    
+        <aside class="sidebar">
+            <div class="flex-wrapper">
+                <p class="sidebar__title margin-right-auto">TODOIST</p>
+                <img id="sidebar__minimize-icon" class="icon" src="icons/sidebar-minimize.svg" alt="">
             </div>
-            <p class="header__button-text">Study React</p>
-        </button>
-    </header>
 
-    <aside>
+            <div class="sidebar__seperator"></div>
 
-    </aside>
+            <div class="sidebar__home">
+                <div class="flex-wrapper">
+                    <h2 class="home__title margin-right-auto">HOME</h2>
+                    <img src="icons/home.svg" alt="">
+                </div>
+
+                <div class="home__actions">
+                    <div class="home__action">
+                        <div class=" flex-wrapper">
+                            <div class="home__icon-decorator margin-right-sm"></div>
+                            <img src="icons/all-tasks.svg" alt="">
+                        </div>
+
+                        <p class="home__action-text">All tasks</p>
+                    </div>
+
+                    <div class="home__action">
+                        <div class=" flex-wrapper">
+                            <div class="home__icon-decorator margin-right-sm"></div>
+                            <img src="icons/calendar-important.svg" alt="">
+                        </div>
+
+                        <p class="home__action-text">Due Today</p>
+                    </div>
+
+                    <div class="home__action">
+                        <div class=" flex-wrapper">
+                            <div class="home__icon-decorator margin-right-sm"></div>
+                            <img src="icons/calendar-week.svg" alt="">
+                        </div>
+
+                        <p class="home__action-text">Next 7 Days</p>
+                    </div>
+                </div>
+            </div>
+                        <div class="sidebar__seperator"></div>
+
+
+            <div class="sidebar__projects">
+                <div class="flex-wrapper">
+                    <h2 class="projects__title margin-right-auto">PROJECTS</h2>
+                    <img src="icons/projects.svg" alt="">
+                </div>
+
+                <div class="projects__container">
+                    <div class="projects__project">
+                        <div class="rectangle">
+                            <div class="vertical-first"></div>
+                            <div class="horizontal"></div>
+                            <p class="projects__project-text">Study React</p>
+                            <img class="projects__project-pointer" src="icons/project-pointer.svg" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="projects__project">
+                        <div class="rectangle">
+                            <div class="vertical"></div>
+                            <div class="horizontal"></div>
+                            <p class="projects__project-text">Study Japanese</p>
+                        </div>
+                    </div>
+
+                    <div class="projects__project">
+                        <div class="rectangle">
+                            <div class="vertical"></div>
+                            <div class="horizontal"></div>
+                            <p class="projects__project-text margin-right-sm">New Project?</p>
+                            <img src="icons/new-project.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar__footer">
+                <img class="sidebar__github" src="icons/github.svg" alt="">
+                <p class="sidebar__copyright">© 2026 ErnyDV</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+        </main>
+    </div>
 </body>
 </html>
