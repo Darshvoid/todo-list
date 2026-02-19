@@ -6,6 +6,7 @@
     <title>Todo List</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="task.css">
 </head>
 <body>
     <div class="app-container">
@@ -47,6 +48,7 @@
 
             <div class="sidebar__home">
                 <div class="flex-wrapper">
+                    <div class="sidebar__title-decoration"></div>
                     <h2 class="home__title margin-right-auto">HOME</h2>
                     <img src="icons/home.svg" alt="">
                 </div>
@@ -85,6 +87,7 @@
 
             <div class="sidebar__projects">
                 <div class="flex-wrapper">
+                    <div class="sidebar__title-decoration"></div>
                     <h2 class="projects__title margin-right-auto">PROJECTS</h2>
                     <img src="icons/projects.svg" alt="">
                 </div>
@@ -125,7 +128,63 @@
         </aside>
 
         <main class="main-content">
+            <div class="task">
+                <div class="task__actions">
 
+                    <button type="button"  class="task__action task__action-notes">
+                        <div class="task__iconseperator-view"></div>
+                        <img class="task__action-icon task__view-icon" src="icons/view.svg" alt="">
+                        <p class="task__action-text">View Notes</p>
+                    </button>
+
+                    <div class="flex-wrapper gap-md">
+                        <button type="button" class="task__action task__action-delete">
+                            <div class="task__iconseperator-delete"></div>
+                            <img class="task__action-icon task__delete-icon" src="icons/delete.svg" alt="">
+                            <p class="margin-right-sm task__action-text">Delete</p>
+                            <div class="task__action-decoration--left">
+                                <img class="task__decoration-svg" src="icons/action-decoration-left.svg" alt="">
+
+                            </div>
+                        </button>
+                        <button  type="button" class="task__action task__action-edit">
+                            <div class="task__iconseperator-edit"></div>
+                            <img class="task__action-icon task__edit-icon" src="icons/edit.svg" alt="">
+                            <p class="margin-left-sm task__action-text">Edit</p>
+                            <div class="task__action-decoration--right">
+                                <img class="task__decoration-svg" src="icons/action-decoration-right.svg" alt="">
+
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="task__info">
+                    <h2 class="task__title">Learn JSX</h2>
+                    <div class="task__info-divider"></div>
+                    <div class="task__date-container">
+                        <p class="task__date">Due: 5/22/2026</p>
+                        <img class="task__date-icon" src="icons/calendar-week--grey.svg" alt="">
+                    </div>
+                </div>
+                <div class="task__stats">
+                    <div class="task__priority">
+                        <p class="task__priority-title">Priority</p>
+                        <img class="task__priority-icon"src="icons/priority-high.svg" alt="">
+                        <p class="task__priority-type">High</p>
+                        <div class="task__priority-underlight"></div>
+                    </div>
+                    <div class="task__status">
+                        <p class="task__status-title">Status</p>
+                        <img class="task__status-icon"src="icons/status-ongoing.svg" alt="">
+                        <p class="task__status-type">Ongoing</p>
+                        <div class="task__status-underlight"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-add">
+                <img src="icons/task-add.svg" alt="">
+            </div>
         </main>
     </div>
 </body>
