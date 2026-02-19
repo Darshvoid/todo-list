@@ -1,4 +1,4 @@
-import { ValidationError } from "./utility.js";
+import { ValidationError } from "../../utilities/utility.js";
 import * as Datefns  from "date-fns"
 
 class Task {
@@ -67,3 +67,5 @@ class Task {
 
     get status(){return this._status};
 }
+
+export default Task;

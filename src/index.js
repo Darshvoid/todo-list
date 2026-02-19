@@ -1,1 +1,1 @@
-console.log('helze')
+import TaskElement from "./modules/task/classes/TaskElement.js"

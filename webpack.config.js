@@ -13,6 +13,10 @@ export default {
             }
         ]
     },
+    
+    devtool: [
+        {type: "javascript", use:"eval-source-map"}
+    ],
 
     plugins: [new HtmlWebpackPlugin({
         template: 'src/index.html'
