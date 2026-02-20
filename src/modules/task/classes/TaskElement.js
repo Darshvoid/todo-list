@@ -1,5 +1,5 @@
 import Task from "./Task.js";
-import { domUtils } from "../../utilities/utility.js";
+import { parseDOMSchema } from "../../utilities/utility.js";
 
 const taskElements = []
 
