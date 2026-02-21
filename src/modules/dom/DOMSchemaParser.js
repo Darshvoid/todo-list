@@ -1,11 +1,17 @@
-
-// DOM HANDLING UTILS
-let currentParentElement = null;
 let parentElementArray = [];
 let currentDepth = 0;
 
-let traversed = false;
-//returns dom element
+
+
+function checkIfVisited(depth, array){
+    for(let i = 0; i < array.length; i++){
+        if(array[i].depth === depth){
+            return true
+        }
+    }
+
+    return false
+}
 
 function parseElementStrings(tree){
     for(let node in tree){
@@ -39,6 +45,17 @@ function parseAttributeSrings(tree){
             delete tree[node]
         }
 
+        if(node.toLocaleLowerCase().includes('textcontent')){
+
+            if(tree.parentElement){
+               tree.parentElement.textContent = tree[node]
+            }else{
+                tree.element.textContent = tree[node]
+            }
+
+            delete tree[node];
+        }
+
         if(!(tree[node] instanceof HTMLElement) && typeof tree[node] === typeof ''){
             if(tree.parentElement){
                 tree.parentElement.setAttribute(node, tree[node])
@@ -56,127 +73,46 @@ function parseAttributeSrings(tree){
 
 }
 
-function parseDOMSchema(tree){
+
+
+function createDomHierarchy(tree){
     for(let node in tree){
+        console.log(tree[node])
+        console.log(currentDepth)
+
+
         if(node.includes('parentElement') ){
-            parentElementArray.push(tree[node]);
+            parentElementArray.push({el:tree[node], depth:currentDepth});
+            if(parentElementArray.length > 1 && currentDepth !== parentElementArray.at(-2).depth){
+                parentElementArray.at(-2).el.appendChild(tree[node]);
+            }
             continue
         }
 
+        if(node.includes('element')){
+            parentElementArray.at(-1).el.appendChild(tree[node])
+        }
+
         if(typeof tree[node] === typeof {} && !(tree[node] instanceof HTMLElement)){
-            console.log(currentDepth);
-            console.log(tree[node])
             currentDepth++
-            parseDOMSchema(tree[node])
+            createDomHierarchy(tree[node])
         }
 
         if(!(tree[node] instanceof HTMLElement)){
-
-            currentDepth--;
-        }
-    }
-}
-
-
-// ONLY HAVE 1 ROOT PARENT, IF NESTED THEN CAN HAVE INFINITE.
-let task = {
-    parentElement: 'div', //append to pparrent array
-    classes: 'task',
-
-    children:{ 
-        taskActions: {
-            parentElement: 'div', // append to currentParentElemen
-            classes: 'task__actions',
-            children:{ //set currentParentElement1 ^^
-                viewNotesButton: {
-                    parentElement: 'button', //append to currentParentElement1
-                    classes: 'task__action task__action-notes',
-                    type: 'button',
-                    children: { //set currentParentElement2
-                        taskIconSeperator: {
-                            element: 'div', //append currentParentElement2
-                            classes: 'task__iconseperator-view'
-                        },
-                        taskActionIcon: {
-                            element: 'img', //append currentParentElement2
-                            src: 'icons/view.svg',
-                            classes: "task__action-icon task__view-icon"
-                        },
-                        taskActionText: {
-                            element: 'p', //append currentParentElement2
-                            textContext: 'View Notes'
-                        }
-                    }
-                }
-            },
-        },
-        flexWrapper: {
-            parentElement:'div', //append currentParentElement2
-            classes: "flex-wrapper gap md",
-
-            children: {
-                deleteButton:{
-                    element: 'button',
-                    classes: 'task__action task__action-delete',
-                    type: 'button',
-                    children: {
-                        taskIconSeperator: {
-                            element: 'div',
-                            classes: 'task__iconseperator-delete'
-                        }
-                    }
-                }
+            if(checkIfVisited(currentDepth, parentElementArray)){
+                parentElementArray.pop()
             }
+            currentDepth--;
+
         }
     }
 }
-parseElementStrings(task);
-parseAttributeSrings(task);
-parseDOMSchema(task);
 
-// let l = {
-//     "parentElement": {}, //currentParentElement0 <-- depth0
-//     "children": { <-- depth1
-//         "taskActions": { <-- depth2
-//             "parentElement": {}, // append to currentParentElement0 
-//             "children": { //make its parent element the currentParrentElement1 <-- depth3
-//                 "viewNotesButton": { <-- depth4
-//                     "parentElement": {}, // append to currentParentElement1 
-//                     "children": { //make its parent element the currentParrentElement2 <-- depth5
-//                         "taskIconSeperator": { <-- depth6
-//                             "element": {} /// append to currentParentElement2 <-- depth7
-//                         },
-//                         "taskActionIcon": {
-//                             "element": {} // append to currentParentElement2
-//                         },
-//                         "taskActionText": {
-//                             "element": {} // append to currentParentElement2
-//                         }
-//                     }
-//                 },
-//             }    
-//         },
-//         "flexWrapper": { <-- depth0
-//                     "parentElement": {},  // append to currentParentElement2
-//                     "children": {
-//                         "deleteButton": {
-//                             "element": {},
-//                             "children": {
-//                                 "taskIconSeperator": {
-//                                     "element": {}
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//     }
+function parseDOMSchema(domSchema){
+    parseElementStrings(domSchema);
+    parseAttributeSrings(domSchema);
+    createDomHierarchy(domSchema)
+    return domSchema;
+}
 
-// }
-
-
-
-console.log(task.parentElement.classList)
-console.log(task)
-
-export default parseDOMSchema 
+export default parseDOMSchema;
