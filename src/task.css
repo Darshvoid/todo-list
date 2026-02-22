@@ -1,3 +1,13 @@
+:root{
+    --low: #162633;
+    --medium: #6E5800;
+    --high: #3B2121;
+    
+    --unstarted: #818181;
+    --ongoing: #91783A;
+    --completed: #63FF2A;
+}
+
 .task{
   position: relative;
   display: flex;
@@ -10,7 +20,6 @@
   padding: 18px 20px;
 
 
-  background: linear-gradient(to right,#3B2121 35%, #91783A 100%);
 
   border-top-left-radius: 21px;
   border-bottom-right-radius: 21px;
@@ -254,10 +263,24 @@
     width: 100%;
 }
 
-.task__priority-underlight{
+
+.task__priority-underlight--low{
+    background-color: #6BADE3;
+}
+
+.task__priority-underlight--medium{
+    background-color: #fff020;
+}
+.task__priority-underlight--high{
     background-color: #D76161;
 }
 
-.task__status-underlight{
+.task__status-underlight--unstarted{
+    background-color: #AAAAAA;
+}
+.task__status-underlight--ongoing{
     background-color: #F38F04;
+}
+.task__status-underlight--completed{
+    background-color: #4EDE1A;
 }

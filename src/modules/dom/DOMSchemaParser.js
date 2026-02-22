@@ -32,42 +32,59 @@ function parseElementStrings(tree){
 function parseAttributeSrings(tree){
 
     for(let node in tree){
-        if(node.toLowerCase().includes('classes')){
-
-            let classesArray = tree[node].split(" ");
-
-            if(tree.parentElement){
-               tree.parentElement.classList.add(...classesArray) 
-            }else{
-                tree.element.classList.add(...classesArray)
-            }
+        try {
             
-            delete tree[node]
-        }
-
-        if(node.toLocaleLowerCase().includes('textcontent')){
-
-            if(tree.parentElement){
-               tree.parentElement.textContent = tree[node]
-            }else{
-                tree.element.textContent = tree[node]
-            }
-
-            delete tree[node];
-        }
-
-        if(!(tree[node] instanceof HTMLElement) && typeof tree[node] === typeof ''){
-            if(tree.parentElement){
-                tree.parentElement.setAttribute(node, tree[node])
-                delete tree[node]
-            }else{
-                tree.element.setAttribute(node, tree[node])
+            if(node.toLowerCase().includes('classes')){
+    
+                let classesArray = tree[node].split(" ");
+    
+                if(tree.parentElement){
+                   tree.parentElement.classList.add(...classesArray) 
+                }else{
+                    tree.element.classList.add(...classesArray)
+                }
+                
                 delete tree[node]
             }
-        }
+    
+            if(node.toLowerCase().includes('textcontent')){
+    
+                if(tree.parentElement){
+                   tree.parentElement.textContent = tree[node]
+                }else{
+                    tree.element.textContent = tree[node]
+                }
+    
+                delete tree[node];
+            }
 
-        if(typeof tree[node] === typeof {} && !(tree[node] instanceof HTMLElement)){
-            parseAttributeSrings(tree[node])
+            if(node.toLowerCase().includes('background')){
+                
+                if(tree.parentElement){
+                   tree.parentElement.style.background = tree[node]
+                }else{
+                    tree.element.style.background = tree[node]
+                }
+                
+                delete tree[node];
+            }
+    
+            if(!(tree[node] instanceof HTMLElement) && typeof tree[node] === typeof ''){
+                if(tree.parentElement){
+                    tree.parentElement.setAttribute(node, tree[node])
+                    delete tree[node]
+                }else{
+                    tree.element.setAttribute(node, tree[node])
+                    delete tree[node]
+                }
+            }
+    
+            if(typeof tree[node] === typeof {} && !(tree[node] instanceof HTMLElement)){
+                parseAttributeSrings(tree[node])
+            }
+        } catch (error) {
+            console.log(`Error at node: ${tree[node]}`)
+            console.log(error)
         }
     }
 
@@ -77,8 +94,7 @@ function parseAttributeSrings(tree){
 
 function createDomHierarchy(tree){
     for(let node in tree){
-        console.log(tree[node])
-        console.log(currentDepth)
+
 
 
         if(node.includes('parentElement') ){

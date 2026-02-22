@@ -7,7 +7,10 @@ class ValidationError extends Error{
     }
 }
 
+function capitalizeFirstLetter(string){
+    return string.slice(0,1).toUpperCase() + string.slice(1)  
+}
 
 
 // console.log(l.parent.parentElement)
-export { ValidationError}
+export { ValidationError, capitalizeFirstLetter}

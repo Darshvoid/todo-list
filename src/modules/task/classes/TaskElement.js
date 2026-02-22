@@ -1,7 +1,13 @@
 import Task from "./Task.js";
-
+import * as Datefns  from "date-fns"
 import parseDOMSchema from "../../dom/DOMSchemaParser.js";
+import {capitalizeFirstLetter} from '../../utilities/utility.js'
+
+
 const taskElements = []
+
+let mainContent = document.querySelector('.main-content')
+let taskAdd = document.querySelector('.task-add')
 
 
 function TaskElement(task){
@@ -10,14 +16,11 @@ function TaskElement(task){
 
     
     
-
-}
-
-let newEl = TaskElement(new Task("z",new Date(),"low","ongoing"))
-
-let task = {
+    return {
+    id: task.id,
     parentElement: 'div',
     classes: 'task',
+    background: `linear-gradient(to right,var(--${task.priority}) 35%, var(--${task.status}) 100%)`,
 
     children:{ 
         taskActions: {
@@ -119,13 +122,125 @@ let task = {
                 }
             },
         },
+        taskInfo: {
+            parentElement: 'div',
+            classes: 'task__info',
+            children: {
+                taskTitle: {
+                    element: 'h2',
+                    classes: 'task__title',
+                    textContent: task.title
+                },
+                taskInfoDivider: {
+                    element: 'div',
+                    classes: 'task__info-divider',
+                },
+                taskDateContainer: {
+                    parentElement: 'div',
+                    classes: 'task__date-container',
+                    children: {
+                        taskDate: {
+                            element: 'p',
+                            classes: 'task__date',
+                            textContent: `Due: ${Datefns.format(task.dueDate, 'MM/dd/yyyy')}`
+                        },
+                        taskDateIcon: {
+                            element: 'img',
+                            classes: 'task__date-icon',
+                            src: 'icons/calendar-week--grey.svg'
+                        }
+                    }
+                }
+            }
+        },
+        taskStats: {
+            parentElement: 'div',
+            classes: 'task__stats',
+            children: {
+                taskPriority: {
+                    parentElement: 'div',
+                    classes: 'task__priority',
+                    children: {
+                        taskPriorityTitle: {
+                            element: 'p',
+                            classes: 'task__priority-title',
+                            textContent: 'Priority'
+                        },
+                        taskPriorityIcon: {
+                            element: 'img',
+                            classes: 'task__priority-icon',
+                            src: `icons/priority-${task.priority}.svg`
+                        },
+                        taskPriorityType: {
+                            element: 'p',
+                            classes: 'task__priority-type',
+                            textContent: capitalizeFirstLetter(task.priority)
+                        },
+                        taskPriorityUnderlight: {
+                            element: 'div',
+                            classes: `task__priority-underlight task__priority-underlight--${task.priority}`
+                        }
+                    }
+                },
+                taskStatus: {
+                    parentElement: 'div',
+                    classes: 'task__status',
+                    children: {
+                        taskStatusTitle: {
+                            element: 'p',
+                            classes: 'task__status-title',
+                            textContent: 'Status'
+                        },
+                        taskStatusIcon: {
+                            element: 'img',
+                            classes: 'task_status-icon',
+                            src: `icons/status-${task.status}.svg`
+                        },
+                        taskStatusType: {
+                            element: 'p',
+                            classes: 'task__status-type',
+                            textContent: capitalizeFirstLetter(task.status)
+                        },
+                        taskStatusUnderline: {
+                            element: 'div',
+                            classes: `task__status-underlight task__status-underlight--${task.status}`
+                        }
+                    }
+                }
+            }
+        }
+    }
     }
 }
 
-let el = parseDOMSchema(task)
+let a = new Task("Studying react",new Date('4/22/26'),"low","completed")
+let b = new Task("Study JSX",new Date('7/22/26'),"medium","completed")
+let c = new Task("Finish modules",new Date('5/22/26'),"high","completed")
 
-let newz = document.querySelector('.main-content')
-let zam = document.querySelector('.task-add')
+let d = new Task("Studying react",new Date('4/22/26'),"low","ongoing")
+let e = new Task("Study JSX",new Date('7/22/26'),"medium","ongoing")
+let f = new Task("Finish modules",new Date('5/22/26'),"high","ongoing")
+
+let g = new Task("Studying react",new Date('4/22/26'),"low","unstarted")
+let i = new Task("Study JSX",new Date('7/22/26'),"medium","unstarted")
+let h = new Task("Finish modules",new Date('5/22/26'),"high","unstarted")
+
+function createDOMReadyTask(task){
+    let newTaskElement = new TaskElement(task)
+    let elementReadyTask = parseDOMSchema(newTaskElement)
+
+    
+    mainContent.insertBefore(elementReadyTask.parentElement, taskAdd);
+}
 
 
-newz.insertBefore(el.parentElement,zam);
+
+createDOMReadyTask(a)
+createDOMReadyTask(b)
+createDOMReadyTask(c)
+createDOMReadyTask(d)
+createDOMReadyTask(e)
+createDOMReadyTask(f)
+createDOMReadyTask(g)
+createDOMReadyTask(i)
+createDOMReadyTask(h)
