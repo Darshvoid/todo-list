@@ -1,0 +1,131 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    position: absolute;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    height: max-content;
+    width: 418px;
+
+    padding: 20px 0;
+    gap: 32px;
+    border-radius: 6px;
+
+    border: 1px solid #FFFFFF;
+    background-color: #1A1A1A;
+    z-index: 3;
+}
+
+.menu-close{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    
+
+    padding: 6px;
+
+    border-left: solid 1px #D76161;
+    border-bottom: solid  1px #D76161;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.menu__options{
+    display: flex;
+    flex-direction: column;
+
+    gap: 23px;
+}
+
+.menu__option{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menu__option-title{
+    font-size: 24px;
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+.menu__container{
+    position: relative;
+    width: 306px;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+
+}
+
+.menu_priority-container{
+    width: 306px;
+}
+
+.menu__input::placeholder{
+    text-align: center;
+
+    margin-left: -60px;
+}
+
+.menu__input, .menu__input:focus{
+    height: 30px;
+    width: 85%;
+
+
+    background: none;
+    border: none !important;
+    color: none;
+    outline: none;
+}
+
+
+
+.menu__input-icon{
+    position: absolute;
+
+    top: 50%;
+    left: 90%;
+    
+    transform: translateY(-50%);
+}
+
+.menu__confirm-btn{
+    height: 30px;
+
+    width: 185px;
+
+    background: none;
+    border: 1px solid #61AC69;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.menu__confirm-txt{
+    font-size: 20px;
+    font-weight: 600;
+
+    color: #61AC69;
+}
+
+.menu__confirm-container{
+    justify-content: space-evenly;
+}
+.menu__error{
+    color: #D76161;
+    font-size: 1rem;
+}

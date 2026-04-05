@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="task.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div class="app-container">
         <header class="header">
-    
+            
             <div class="flex-wrapper">
                 <button class="header__button margin-right-med">
                     <div class="header__button-icon-wrapper">
-                        <img class="header__button-icon" src="./icons/filter.svg" alt="">
+                        <img class="header__button-icon" src="./core/assets/svgs/filter.svg" alt="">
                     </div>
                     <p class="header__button-text">Filter</p>
                 </button>
                 
                 <button class="header__button">
                     <div class="header__button-icon-wrapper">
-                        <img class="header__button-icon" src="./icons/search.svg" alt="">
+                        <img class="header__button-icon" src="./core/assets/svgs/search.svg" alt="">
                     </div>
                     <input class="header__search" type="search">
                 </button>
@@ -30,18 +28,19 @@
     
             <h1 class="header__heading"> <strong class="header__heading--highlight">TODO</strong>IST</h1>
             
-            <button class="header__button">
+            <div class="fill-space"></div>
+            <button id="header__title" class="header__button">
                 <div class="header__button-icon-wrapper">
-                    <img class="header__button-icon" src="./icons/Book.svg" alt="">
+                    <img class="header__button-icon" src="./core/assets/svgs/Book.svg" alt="">
                 </div>
-                <p class="header__button-text">Study React</p>
+                <p class="header__project-title header__button-text">Default</p>
             </button>
         </header>
     
         <aside class="sidebar">
             <div class="flex-wrapper">
                 <p class="sidebar__title margin-right-auto">TODOIST</p>
-                <img id="sidebar__minimize-icon" class="icon" src="icons/sidebar-minimize.svg" alt="">
+                <img id="sidebar__minimize-icon" class="icon" src="./core/assets/svgs/sidebar-minimize.svg" alt="">
             </div>
 
             <div class="sidebar__seperator"></div>
@@ -50,14 +49,14 @@
                 <div class="flex-wrapper">
                     <div class="sidebar__title-decoration"></div>
                     <h2 class="home__title margin-right-auto">HOME</h2>
-                    <img src="icons/home.svg" alt="">
+                    <img src="./core/assets/svgs/home.svg" alt="">
                 </div>
 
                 <div class="home__actions">
                     <div class="home__action">
                         <div class=" flex-wrapper">
                             <div class="home__icon-decorator margin-right-sm"></div>
-                            <img src="icons/all-tasks.svg" alt="">
+                            <img src="./core/assets/svgs/all-tasks.svg" alt="">
                         </div>
 
                         <p class="home__action-text">All tasks</p>
@@ -66,7 +65,7 @@
                     <div class="home__action">
                         <div class=" flex-wrapper">
                             <div class="home__icon-decorator margin-right-sm"></div>
-                            <img src="icons/calendar-important.svg" alt="">
+                            <img src="./core/assets/svgs/calendar-important.svg" alt="">
                         </div>
 
                         <p class="home__action-text">Due Today</p>
@@ -75,7 +74,7 @@
                     <div class="home__action">
                         <div class=" flex-wrapper">
                             <div class="home__icon-decorator margin-right-sm"></div>
-                            <img src="icons/calendar-week.svg" alt="">
+                            <img src="./core/assets/svgs/calendar-week.svg" alt="">
                         </div>
 
                         <p class="home__action-text">Next 7 Days</p>
@@ -89,40 +88,27 @@
                 <div class="flex-wrapper">
                     <div class="sidebar__title-decoration"></div>
                     <h2 class="projects__title margin-right-auto">PROJECTS</h2>
-                    <img src="icons/projects.svg" alt="">
+                    <img src="./core/assets/svgs/projects.svg" alt="">
                 </div>
 
                 <div class="projects__container">
-                    <div class="projects__project">
-                        <div class="rectangle">
-                            <div class="vertical-first"></div>
-                            <div class="horizontal"></div>
-                            <p class="projects__project-text">Study React</p>
-                            <img class="projects__project-pointer" src="icons/project-pointer.svg" alt="">
-                        </div>
-                    </div>
-    
-                    <div class="projects__project">
-                        <div class="rectangle">
-                            <div class="vertical"></div>
-                            <div class="horizontal"></div>
-                            <p class="projects__project-text">Study Japanese</p>
-                        </div>
-                    </div>
 
-                    <div class="projects__project">
+
+                    <div id="projectAdd" class="projects__project">
                         <div class="rectangle">
                             <div class="vertical"></div>
                             <div class="horizontal"></div>
                             <p class="projects__project-text margin-right-sm">New Project?</p>
-                            <img src="icons/new-project.svg" alt="">
+                            <img src="./core/assets/svgs/new-project.svg" alt="">
                         </div>
                     </div>
                 </div>
+                <p class="tip">Right click project to edit it</p>
+                <p class="tip">Middle click project to remove it</p>
             </div>
 
             <div class="sidebar__footer">
-                <img class="sidebar__github" src="icons/github.svg" alt="">
+                <img class="sidebar__github" src="./core/assets/svgs/github.svg" alt="">
                 <p class="sidebar__copyright">© 2026 ErnyDV</p>
             </div>
         </aside>
@@ -182,8 +168,8 @@
                 </div>
             </div> -->
 
-            <div class="task-add">
-                <img src="icons/task-add.svg" alt="">
+            <div id="taskAdd" class="task-add__button">
+                <img src="./core/assets/svgs/task-add.svg" alt="">
             </div>
         </main>
     </div>

@@ -1,3 +1,0 @@
-function taskHandler(taskObj, taskElementObj){
-    
-}

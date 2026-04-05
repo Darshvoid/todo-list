@@ -1,0 +1,68 @@
+.notes-container{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 10px;
+  
+  top: 50%;
+  left: 50%;
+
+  height: fit-content;
+  width: fit-content;
+
+  transform: translate(-50%,-50%);
+  border-radius: 4px;
+
+  z-index: 4;
+}
+
+
+.notes{
+  height: 500px;
+  width: 800px;
+  
+  min-height: 400px;
+  min-width: 450px;
+
+  max-width: 90vw;
+  max-height: 90vh;
+  
+  background-color: #FFFFFF;
+  color: #000000;
+
+  border: 8px solid #000000;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px #FFFFFF;
+  
+
+  white-space: pre-wrap;
+
+}
+
+.notes-title{
+  font-size: 1.6rem;
+
+  position: relative;
+  text-align: center;
+
+}
+
+.notes-finish{
+    height: 30px;
+
+    width: 185px;
+
+    background: none;
+    border: 1px solid #61AC69;
+    border-radius: 4px;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    color: #61AC69;
+
+    cursor: pointer;
+}

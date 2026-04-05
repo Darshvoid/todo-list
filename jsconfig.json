@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "Core": ["src/core/exports/index.js"],
+      "Core/*": ["src/core/exports/*"],
+      "Projects": ["src/features/projects/exports/index.js"],
+      "Projects/*": ["src/features/projects/exports/index.js"],
+      "Tasks": ["src/features/tasks/exports/index.js"],
+      "Tasks/*": ["src/features/tasks/exports/index.js"]
+    }
+  }
+}
