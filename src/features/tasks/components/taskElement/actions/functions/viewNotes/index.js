@@ -80,8 +80,9 @@ window.addEventListener('beforeunload', ()=> {
 
 //load notes from local storage
 
-let storedNotes = JSON.parse(localStorage.getItem('Notes'));
-console.log(storedNotes)
+let storedNotes = JSON.parse(localStorage.getItem('Notes')) || [];
+
+
 if(storedNotes.length > 0){
     storedNotes.forEach((note)=> {
         try{
