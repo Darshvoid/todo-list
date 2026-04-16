@@ -1,5 +1,7 @@
 import core from "Core"
 
+
+
 class Task {
     _id = `task-${crypto.randomUUID()}`
     _title = null;
@@ -45,7 +47,7 @@ class Task {
         }
         
         if(!core.lib.isExists(tempDate.getFullYear(), tempDate.getMonth(), tempDate.getDay())){
-            throw new ValidationError("Date doesn't exist.")
+            throw new Error("Date doesn't exist.")
         }
 
         this._dueDate = dueDate
@@ -62,7 +64,7 @@ class Task {
         const validPriorities = ['low', 'medium', 'high'];
         
         if(!validPriorities.includes(priority.toLowerCase())){
-            throw new ValidationError(`Invalid priority value: ${priority}. Valid values: low, medium, high.`);
+            throw new Error(`Invalid priority value: ${priority}. Valid values: low, medium, high.`);
             
         }
 
@@ -79,7 +81,7 @@ class Task {
         }
 
         if(!validStates.includes(status.toLowerCase())){
-            throw new ValidationError(`Invalid status value: ${status}. Valid values: unstarted, ongoing, completed.`);
+            throw new Error(`Invalid status value: ${status}. Valid values: unstarted, ongoing, completed.`);
         }
         
         this._status = status.toLowerCase()
