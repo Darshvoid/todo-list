@@ -46,7 +46,7 @@ class Task {
             throw new Error('Date must be current or future.')
         }
         
-        if(!core.lib.isExists(tempDate.getFullYear(), tempDate.getMonth(), tempDate.getDay())){
+        if(!core.lib.isExists(tempDate.getFullYear(), tempDate.getMonth(), tempDate.getDate())){
             throw new Error("Date doesn't exist.")
         }
 
