@@ -40,44 +40,48 @@ window.addEventListener('beforeunload', () => {
 
 
 
-let allProjects = JSON.parse(localStorage.getItem('Projects'))
+let allProjects = JSON.parse(localStorage.getItem('Projects')) || [] 
 console.log(allProjects)
 
-allProjects.forEach(element => {
-   let tasks = element.tasks
-   if(element._title.toLowerCase() === 'default'){
-      let oldDefaultProject = projects.ProjectHandling.getCurrentProject();
-      tasks.forEach((el)=> {
-         let newTask = new Task(el._title, el._priority, el._status, el._dueDate) 
-         newTask._id = el._id
-         oldDefaultProject.tasks.push(newTask)
-         let newTaskElement = taskSchema(newTask)
 
-         taskAddElement.before(core.utils.dom.parseSchema(newTaskElement));
-      })
-
-   }else{
-      const newProject = new Project(element._title);
-      console.log(newProject)
-      newProject._id = element._id
-      tasks.forEach((el)=> {
-         let newTask = new Task(el._title, el._priority, el._status, el._dueDate) 
-         newTask._id = el._id
-         newProject.attachTaskToProject(newTask)
-      })
-      
-      
-      let newProjectElement = projectSchema(newProject);
-      projects.ProjectHandling.pushToProjectsArray(newProject)
-      delete newProjectElement.children.rectangle.children.projectPointer
-      document.body.querySelector('#projectAdd').before(core.utils.dom.parseSchema(newProjectElement));
-   }
-
-
+if(allProjects.length > 0){
    
-});
+   allProjects.forEach(element => {
+      let tasks = element.tasks
+      if(element._title.toLowerCase() === 'default'){
+         let oldDefaultProject = projects.ProjectHandling.getCurrentProject();
+         tasks.forEach((el)=> {
+            let newTask = new Task(el._title, el._priority, el._status, el._dueDate) 
+            newTask._id = el._id
+            oldDefaultProject.tasks.push(newTask)
+            let newTaskElement = taskSchema(newTask)
+   
+            taskAddElement.before(core.utils.dom.parseSchema(newTaskElement));
+         })
+   
+      }else{
+         const newProject = new Project(element._title);
+         console.log(newProject)
+         newProject._id = element._id
+         tasks.forEach((el)=> {
+            let newTask = new Task(el._title, el._priority, el._status, el._dueDate) 
+            newTask._id = el._id
+            newProject.attachTaskToProject(newTask)
+         })
+         
+         
+         let newProjectElement = projectSchema(newProject);
+         projects.ProjectHandling.pushToProjectsArray(newProject)
+         delete newProjectElement.children.rectangle.children.projectPointer
+         document.body.querySelector('#projectAdd').before(core.utils.dom.parseSchema(newProjectElement));
+      }
+   
+   
+      
+   });
+};
 
 
 
 
-console.log(allProjects)
+
