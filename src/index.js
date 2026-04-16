@@ -6,6 +6,8 @@ import Task from "./features/tasks/models/Task.js";
 import taskSchema from "./features/tasks/components/taskElement/index.js";
 import core from "Core";
 import projectSchema from "./features/projects/components/projectElement/index.js";
+import sidebarActions from "./features/sidebarActions/exports/index.js";
+import search from "./features/search/exports/index.js";
 import './index.css'
 
 
@@ -80,6 +82,9 @@ if(allProjects.length > 0){
       
    });
 };
+
+sidebarActions();
+search();
 
 
 
