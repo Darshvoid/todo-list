@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="93c06fe3c6af38b16ee7.css">
+<script defer src="main.js"></script></head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            
+            <div class="flex-wrapper">
+                <button class="header__button margin-right-med">
+                    <div class="header__button-icon-wrapper">
+                        <img class="header__button-icon" src="6c7712d1b7ea6f2833ca.svg" alt="">
+                    </div>
+                    <p class="header__button-text">Filter</p>
+                </button>
+                
+                <button class="header__button">
+                    <div class="header__button-icon-wrapper">
+                        <img class="header__button-icon" src="a50296ad0a2cadfce61e.svg" alt="">
+                    </div>
+                    <input class="header__search" type="search">
+                </button>
+            </div>
+    
+            <h1 class="header__heading"> <strong class="header__heading--highlight">TODO</strong>IST</h1>
+            
+            <div class="fill-space"></div>
+            <button id="header__title" class="header__button">
+                <div class="header__button-icon-wrapper">
+                    <img class="header__button-icon" src="d37487ff982bb19aafe6.svg" alt="">
+                </div>
+                <p class="header__project-title header__button-text">Default</p>
+            </button>
+        </header>
+    
+        <aside class="sidebar">
+            <div class="flex-wrapper">
+                <p class="sidebar__title margin-right-auto">TODOIST</p>
+                <img id="sidebar__minimize-icon" class="icon" src="ae3939b926f85ef3a4b4.svg" alt="">
+            </div>
+
+            <div class="sidebar__seperator"></div>
+
+            <div class="sidebar__home">
+                <div class="flex-wrapper">
+                    <div class="sidebar__title-decoration"></div>
+                    <h2 class="home__title margin-right-auto">HOME</h2>
+                    <img src="6ba8d965bb939221801a.svg" alt="">
+                </div>
+
+                <div class="home__actions">
+                    <div class="home__action">
+                        <div class=" flex-wrapper">
+                            <div class="home__icon-decorator margin-right-sm"></div>
+                            <img src="a39174b110f95b1bda55.svg" alt="">
+                        </div>
+
+                        <p class="home__action-text">All tasks</p>
+                    </div>
+
+                    <div class="home__action">
+                        <div class=" flex-wrapper">
+                            <div class="home__icon-decorator margin-right-sm"></div>
+                            <img src="12181ec817fcdbac60d9.svg" alt="">
+                        </div>
+
+                        <p class="home__action-text">Due Today</p>
+                    </div>
+
+                    <div class="home__action">
+                        <div class=" flex-wrapper">
+                            <div class="home__icon-decorator margin-right-sm"></div>
+                            <img src="8da97c026de558766e73.svg" alt="">
+                        </div>
+
+                        <p class="home__action-text">Next 7 Days</p>
+                    </div>
+                </div>
+            </div>
+                        <div class="sidebar__seperator"></div>
+
+
+            <div class="sidebar__projects">
+                <div class="flex-wrapper">
+                    <div class="sidebar__title-decoration"></div>
+                    <h2 class="projects__title margin-right-auto">PROJECTS</h2>
+                    <img src="c7f3f3ba3f48d7c78c71.svg" alt="">
+                </div>
+
+                <div class="projects__container">
+
+
+                    <div id="projectAdd" class="projects__project">
+                        <div class="rectangle">
+                            <div class="vertical"></div>
+                            <div class="horizontal"></div>
+                            <p class="projects__project-text margin-right-sm">New Project?</p>
+                            <img src="31255f8a6ea27fa1b41d.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <p class="tip">Right click project to edit it</p>
+                <p class="tip">Middle click project to remove it</p>
+            </div>
+
+            <div class="sidebar__footer">
+                <img class="sidebar__github" src="d48f8f982b5818e73574.svg" alt="">
+                <p class="sidebar__copyright">© 2026 ErnyDV</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- <div class="task">
+                <div class="task__actions">
+
+                    <button type="button"  class="task__action task__action-notes">
+                        <div class="task__iconseperator-view"></div>
+                        <img class="task__action-icon task__view-icon" src="icons/view.svg" alt="">
+                        <p class="task__action-text">View Notes</p>
+                    </button>
+
+                    <div class="flex-wrapper gap-md">
+                        <button type="button" class="task__action task__action-delete">
+                            <div class="task__iconseperator-delete"></div>
+                            <img class="task__action-icon task__delete-icon" src="icons/delete.svg" alt="">
+                            <p class="margin-right-sm task__action-text">Delete</p>
+                            <div class="task__action-decoration--left">
+                                <img class="task__decoration-svg" src="icons/action-decoration-left.svg" alt="">
+
+                            </div>
+                        </button>
+                        <button  type="button" class="task__action task__action-edit">
+                            <div class="task__iconseperator-edit"></div>
+                            <img class="task__action-icon task__edit-icon" src="icons/edit.svg" alt="">
+                            <p class="margin-left-sm task__action-text">Edit</p>
+                            <div class="task__action-decoration--right">
+                                <img class="task__decoration-svg" src="icons/action-decoration-right.svg" alt="">
+
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="task__info">
+                    <h2 class="task__title">Learn JSX</h2>
+                    <div class="task__info-divider"></div>
+                    <div class="task__date-container">
+                        <p class="task__date">Due: 5/22/2026</p>
+                        <img class="task__date-icon" src="icons/calendar-week--grey.svg" alt="">
+                    </div>
+                </div>
+                <div class="task__stats">
+                    <div class="task__priority">
+                        <p class="task__priority-title">Priority</p>
+                        <img class="task__priority-icon"src="icons/priority-high.svg" alt="">
+                        <p class="task__priority-type">High</p>
+                        <div class="task__priority-underlight task__priority-underlight--high"></div>
+                    </div>
+                    <div class="task__status">
+                        <p class="task__status-title">Status</p>
+                        <img class="task__status-icon"src="icons/status-ongoing.svg" alt="">
+                        <p class="task__status-type">Ongoing</p>
+                        <div class="task__status-underlight task__status-underlight--ongoing"></div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="taskAdd" class="task-add__button">
+                <img src="a095ddcd38a76b4f28da.svg" alt="">
+            </div>
+        </main>
+    </div>
+</body>
+</html>
