@@ -5,6 +5,10 @@ export default {
     entry: "./src/index.js",
     mode: "development",
     
+    output: {
+        filename: '[name].[contenthash].js',
+    },
+    
     devServer: {
         open: true,
         static: [
