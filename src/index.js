@@ -6,6 +6,9 @@ import Task from "./features/tasks/models/Task.js";
 import taskSchema from "./features/tasks/components/taskElement/index.js";
 import core from "Core";
 import projectSchema from "./features/projects/components/projectElement/index.js";
+import './index.css'
+
+
 const appContainer = document.querySelector('.app-container');
 const taskAddElement = document.querySelector('#taskAdd');
 const projectAddElement = document.querySelector("#projectAdd")
@@ -39,6 +42,7 @@ window.addEventListener('beforeunload', () => {
 
 let allProjects = JSON.parse(localStorage.getItem('Projects'))
 console.log(allProjects)
+
 allProjects.forEach(element => {
    let tasks = element.tasks
    if(element._title.toLowerCase() === 'default'){
